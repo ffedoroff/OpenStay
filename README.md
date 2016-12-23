@@ -7,13 +7,7 @@ If you've attented hackathons, you already know how much time can be wasted figu
 
 Even if you are not using this for a hackathon, Django Hackathon Starter is sure to save any developer hours or even days of development time and can serve as a learning guide for web developers.
 
-<h4 align="center">Basic Authentication / OAuth Signin </h4>
-
-![Login](http://i.imgur.com/sEIHsIS.png)
-
-<h4 align="center">API Examples </h4>
-
-![API Examples](http://i.imgur.com/zFqKcVa.png)
+ <hr>
 
 Table of Contents
 -----------------
@@ -97,56 +91,6 @@ To get up and running, simply do the following:
 Getting API Keys
 ----------------
 
-<img src="https://rentpost.com/blog/wp-content/uploads/2015/01/yelp.png" width="200">
-
-1. Register an account on [Yelp.com](http://www.yelp.com/)
-2. Visit the [Yelp for developers page](https://www.yelp.com/developers/manage_api_keys)
-3. You will obtain the following: `CONSUMER KEY`, `CONSUMER SECRET`, `TOKEN`, `TOKEN_SECRET`
-4. Within `settings.py`, add the following:
-    * `YELP_CONSUMER_KEY` = `Yelp Consumer Key`
-    * `YELP_CONSUMER_SECRET` = `Yelp Consumer Secret`
-    * `YELP_TOKEN` = `Yelp Token`
-    * `YELP_TOKEN_SECRET` = `Yelp Token Secret`
-
-<hr>
-
-<img src="https://lh5.ggpht.com/4RfLjWcvlfdFWfxeDcpZxJLWhDytkQhQd2qLSqMhForQoILXf9HqmMD6DNmpbzJzaQ=w300" width="200">
-
-1. Register an account on [Meetup.com](http://www.meetup.com/)
-2. Visit [Meetup OAuth Consumers page](https://secure.meetup.com/meetup_api/oauth_consumers/)
-    * Enter a project name for the `consumer name` field
-    * For `redirect url` field, enter: `http://127.0.0.1:8000/hackathon/`
-3. Within `settings.py`, add the following:
-    * `MEETUP_CONSUMER_KEY` = `Meetup key`
-    * `MEETUP_CONSUMER_SECRET` = `Meetup secret key`
-
-<hr>
-
-<img src="https://tctechcrunch2011.files.wordpress.com/2012/11/twilio-logo-6a141664f35a78e9ac08eed627c2a859.png" width="300">  
-
-1. Register an account on [Twilio.com](https://www.twilio.com/)
-2. Get your [Twilio Number](https://www.twilio.com/user/account/phone-numbers/incoming)
-3. [Setup the numbers](https://www.twilio.com/user/account/phone-numbers/incoming) you want to be able to send messages to
-4. Grab your `account_sid` and `auth_token` [here](https://www.twilio.com/user/account/voice-messaging)
-5. Within `scripts/twilioapi.py`:
-    * Replace `account_sid` with your own Twilio `account_sid`
-    * Replace `auth_token` with your own Twilio `auth_token`
-
-<hr>
-
-<img src="http://3.bp.blogspot.com/-gSyd39LDMRk/TzpVnaZ7ELI/AAAAAAAAEfg/9w1iB-mn5ZM/s1600/github-socialcoding-logo.png" width="300">
-
-1. Register an account on [Github.com](http://www.github.com/).
-2. Visit [Github developer applications page](https://github.com/settings/developers)
-3. Click on **Register new application**.
-    * Enter `Application name` and `Homepage URL` field
-    * For `redirect url` field, enter: `http://127.0.0.1:8000/hackathon/`
-4. Click **Register application**.
-5. Within `settings.py`, add the following:
-    * `GITHUB_CLIENT_ID` = `Github-client-id`
-    * `GITHUB_CLIENT_SECRET` = `Github-client-secret`
-
-<hr>
 
 <img src="https://g.twimg.com/Twitter_logo_blue.png" width="100">
 
@@ -166,33 +110,6 @@ Getting API Keys
     * `TWITTER_ACCESS_TOKEN` = `Twitter-access-token`
     * `TWITTER_ACCESS_TOKEN_SECRET` = `Twitter-access-token-secret`
 
-<hr>
-
-<img src="http://thinkpynk.com/wp-content/uploads/2015/04/instagram-logo.png" width="200">
-
-1. Register an account on [Instagram.com](http://www.instagram.com/).
-2. Visit [Instagram manage clients page](https://instagram.com/developer/clients/manage/)
-3. Click on **Register a New Client**
-    * Enter `Application name`, `Description`, and `Website URL` field
-    * For `Redirect URI` field, enter: `http://127.0.0.1:8000/hackathon/`
-4. Within `settings.py`, add the following:
-    * `INSTAGRAM_CLIENT_ID` = `Instagram-client-id`
-    * `INSTAGRAM_CLIENT_SECRET` = `Instagram-client-secret`
-
-<hr>
-
-<img src="http://blogs.kenan-flagler.unc.edu/wp-content/uploads/2013/10/LinkedIn-Logo-2C.png" width="200">
-
-1. Register an account on [Linkedin.com](http://www.linkedin.com/).
-2. Visit [Linkedin developer Network page](https://www.linkedin.com/secure/developer)
-3. Click on **Add New Application**
-    * Enter `Company Info`, `Application Info`, and `Contact Info` section
-    * Under `OAuth User Agreement` section, select scopes needed
-    * For `OAuth 2.0 Redirect URLs` field, enter: `http://127.0.0.1:8000/hackathon/`
-4. Click **Add Application**
-5. Within `settings.py`, add the following:
-    * `LINKEDIN_CLIENT_ID` = `Linkedin-client-id`
-    * `LINKEDIN_CLIENT_SECRET` = `Linkedin-client-secret`
 
 <hr>
 
@@ -241,91 +158,10 @@ Getting API Keys
 
 <hr>
 
-<img src="https://cf.dropboxstatic.com/static/images/brand/logotype-vflFbF9pY.png" width="200">
 
-1. Register an account on [Dropbox.com](http://www.dropbox.com).
-2. Navigate to [Dropbox Developers](https://www.dropbox.com/developers).
-3. From the side menu, select **App Console** and click on **Create app**.
-4. Configure the app permissions. This example uses the following configuration:
-    * App type- Dropbox API app
-    * My app needs access to files already on Dropbox.
-    * My app needs access to a user's full Dropbox.
-    * **Note:** This kind of configuration will require you to submit your app for approval.
-5. Give your app a name and click the **Create app button**.
-6. You will be redirected to the app console:
-    * Under **Redirect URIs** specify the URL to be redirected after authentication is complete (e.g ```http://locahost:8000/home```) and click **add**.
-    * Copy your ```App key``` and ```App secret```.
-7. Under ```settings.py``` change the following values:
-    * ```DROPBOX_APP_ID = your_app_id```
-    * ```DROPBOX_APP_SECRET = your_app_secret```
-<hr>
-
-<img src='http://www.atlantamusicguide.com/wp-content/uploads/foursquare-logo.png' width="200">
-
-1. Register and account on [Foursquare.com](https://foursquare.com).
-2. Navigate to [Foursquare For Developers](https://developer.foursquare.com).
-3. From the top menu bar select **My Apps** and you will be redirected to the app dashboard.
-4. Hit **Create a New App**:
-    * Give your app a name.
-    * Under **Download / welcome page url**, specify your app main url (e.g ```http://www.localhost:8000```).
-    * Under **Redirect URI**, specify the URL to be redirected after authentication is complete (e.g ```http://locahost:8000/home```) and click **add**.
-    * Scroll all the way to the botttom and hit **Save Changes**.
-5. From the App page you were redirected to, copy your ```App key``` and ```App secret```.
-6. Under ```settings.py``` change to following values:
-    * ```FOURSQUARE_APP_ID = your_client_id```
-    * ```FOURSQUARE_APP_SECRET = your_app_secret```
-<hr>
-
-
-<img src="https://secure.assets.tumblr.com/images/logo_page/img_logotype_34465d_2x.png" width="200">
-
-1. Register an account on Tumblr.com.
-2. Visit Tumblr applications page.
-3. Click on Register Application.
-    * Enter your application information.
-    * For Default callback URL field, enter: http://127.0.0.1:8000/hackathon/.
-4. Click Register.
-5. Within settings.py, add the following:
-    * TUMBLR_CONSUMER_KEY = `Tumblr-consumer-key`
-    * TUMBLR_CONSUMER_SECRET = `Tumblr-consumer-secret`
-
-<hr>
-
-
-<img src="http://games.overpress.it/wp-content/uploads/sites/7/2014/10/steam-logo-10.jpg" width="200">
-
-1. Register an account on [Steam](https://store.steampowered.com/join/)
-2. Visit [Steam Community developers page](https://steamcommunity.com/login/home/?goto=%2Fdev%2Fapikey)
-3. After logging in, add the **Domain Name** as the name of your application and **key** is shown
-4. Within your `views.py` add the **Key** in `key` underneath the view for your steam application
-
-
-<hr>
-
-<img src="http://upload.wikimedia.org/wikipedia/commons/7/77/The_New_York_Times_logo.png" width="200">
-
-1. Register an account on [NY Times Developer Network](http://developer.nytimes.com/docs)
-2. Click on [Register](https://myaccount.nytimes.com/register)
-3. After logging in, click on **APIs** (http://developer.nytimes.com/apps/register)
-    Write in the **Name** of your application and click each **sub-API** that you will use
-    * Agree to the **Terms of Service** and click on **Register Application**
-4. Within your `settings.py` add the following:
-    * `POPAPIKEY` = `Most Popular API`
-    * `TOPAPIKEY` = `Top Stories API`
-
-<hr>
-
-<img src="http://qph.is.quoracdn.net/main-qimg-45312af6930eb01c3c68db9bb30bcad8?convert_to_webp=true" width="200">
-
-1. Register an account on [Quandl](https://www.quandl.com/)
-2. After logging in, click on **Me** and then **Account settings** to find the API key
-3. Within your `settings.py`add `QUANDLAPIKEY` = `Key`
-
-<hr>
 
 Project Structure
 -----------------
-
 
 | Name                               | Description                                                 |
 | ---------------------------------- |:-----------------------------------------------------------:|
@@ -340,22 +176,9 @@ Project Structure
 | **hackathon/static/**             | Front-end JavaScript / CSS files|
 | **hackathon/unittests**           | Unit tests|
 | **hackathon/scripts/**            | API Example scripts|
-| **hackathon/scripts/**github.py   | Script for interacting with Github API   |
-| **hackathon/scripts/**instagram.py| Script for interacting with Instagram API|
-| **hackathon/scripts/**linkedin.py | Script for interacting with LinkedIn API |
-| **hackathon/scripts/**meetup.py   | Script for interacting with Meetup API |
-| **hackathon/scripts/**nytimes.py  | Script for interacting with New York Times API |
-| **hackathon/scripts/**quandl.py   | Script for interacting with Quandl API |
-| **hackathon/scripts/**scraper.py  | Basic web scraper for getting sales from Steam            |
 | **hackathon/scripts/**facebook.py | Script for interacting with Facebook API |
-| **hackathon/scripts/**dropbox.py  | Script for interacting with Dropbox API |
-| **hackathon/scripts/**foursquare.py | Script for interacting with Foursquare API |
 | **hackathon/scripts/**googlePlus.py | Script for interacting with Google+ API |
-| **hackathon/scripts/**steam.py                      | Script for interacting with Steam API   |
-| **hackathon/scripts/**tumblr.py                     | Script for interacting with Tumblr API  |
-| **hackathon/scripts/**twilioapi.py                  | Script for interacting with Twilio API  |
 | **hackathon/scripts/**twitter.py                    | Script for interacting with Twitter API |
-| **hackathon/scripts/**yelp.py                       | Script for interacting with Yelp API |
 | **hackathon/templates/**hackathon/                  | Templates for API examples |
 | **hackathon/templates/**hackathon/base.html         | Base template, contains navbar |
 
@@ -367,9 +190,9 @@ We welcome contributions of all kinds. If you would like to know what work is ne
 
 LICENSE
 -------
+Where applicable to hackathon code contribution this license is applied:
 
 The MIT License (MIT)
-
 Copyright (c) 2015 David Leonard
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
