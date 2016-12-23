@@ -1,11 +1,10 @@
-Django Hackathon Starter
+OpenStay
 ------------------------
 
-A boilerplate application for Django web applications.
+ OpenStay uses the hackathon boilerplate
+ https://github.com/DrkSephy/django-hackathon-starter
 
-If you've attented hackathons, you already know how much time can be wasted figuring out what language to pick, which web framework to choose, which APIs to incorporate, and figuring out OAuth authentication. Django Hackathon Starter aims to provide these features out of the box, allowing the team to save hours of time getting these pieces together.
 
-Even if you are not using this for a hackathon, Django Hackathon Starter is sure to save any developer hours or even days of development time and can serve as a learning guide for web developers.
 
  <hr>
 
@@ -28,33 +27,14 @@ Features
 * Integration with Django Rest Framework
 * Basic Authentication with username and password
 * **OAuth 2.0 Authentication**
-    * Github
-    * LinkedIn
-    * Instagram
     * Facebook
     * Google+
-    * Dropbox
-    * Foursquare
 * **OAuth 1.0a Authentication** 
     * Twitter
-    * Tumblr
 * **API Examples**
-    * Yelp API
-    * Github API
-    * Instagram API
-    * Tumblr API
     * Twitter API
-    * Twilio API
-    * Meetup API
-    * Steam API
-    * Quandl Stock API
-    * New York Times API
-    * LinkedIn API
     * Facebook API
     * Google+ API
-    * Dropbox API
-    * Foursquare API
-
 <hr>
 
 
