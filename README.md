@@ -164,7 +164,7 @@ We welcome contributions of all kinds. If you would like to know what work is ne
 
 ### LICENSE
 
-Where applicable to hackathon code contribution this license is applied:
+**Where applicable to hackathon code contribution the MIT license is applied otherwise OpenStay is housed under the Mozilla Public License Version 2.0**
 
 The MIT License (MIT)
 Copyright (c) 2015 David Leonard
