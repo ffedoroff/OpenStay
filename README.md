@@ -1,4 +1,4 @@
-OpenStay
+# OpenStay
 ------------------------
 
  OpenStay uses the hackathon boilerplate
@@ -8,7 +8,7 @@ OpenStay
 
  <hr>
 
-Table of Contents
+## Table of Contents
 -----------------
 
 - [Features](#features)
@@ -19,7 +19,7 @@ Table of Contents
 - [Contributing](#contributing)
 - [License](#license)
 
-Features
+## Features
 --------
 * User Registration
 * Sphinx Documentation
@@ -38,14 +38,14 @@ Features
 <hr>
 
 
-Pre-requisites
+## Pre-requisites
 --------------
 
 This project relies on `bower` for front-end dependencies, which in turn requires [npm](https://www.npmjs.com/). `npm` is now bundled with `NodeJS`, which you can download and install [here](https://nodejs.org/download/).
 
 For Python-specific libraries, this project relies on [pip](https://pypi.python.org/pypi/pip). The easiest way to install `pip` can be [found here](https://pip.pypa.io/en/latest/installing.html).
 
-Getting Started
+## Getting Started
 ---------------
 To get up and running, simply do the following:
 
@@ -68,7 +68,7 @@ To get up and running, simply do the following:
 
 <hr>
 
-Getting API Keys
+### Getting API Keys
 ----------------
 
 
@@ -140,7 +140,7 @@ Getting API Keys
 
 
 
-Project Structure
+### Project Structure
 -----------------
 
 | Name                               | Description                                                 |
@@ -162,13 +162,13 @@ Project Structure
 | **hackathon/templates/**hackathon/                  | Templates for API examples |
 | **hackathon/templates/**hackathon/base.html         | Base template, contains navbar |
 
-Contributing
+## Contributing
 ------------
 
 We welcome contributions of all kinds. If you would like to know what work is needed to be done, check the [issue tracker](https://github.com/DrkSephy/django-hackathon-starter/issues). Before sending a pull request, please open an issue. This project follows the [pep-0008](https://www.python.org/dev/peps/pep-0008/) style guide.
 
 
-LICENSE
+### LICENSE
 -------
 Where applicable to hackathon code contribution this license is applied:
 
