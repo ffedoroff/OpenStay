@@ -1,15 +1,10 @@
 # OpenStay
-------------------------
-
  OpenStay uses the hackathon boilerplate
  https://github.com/DrkSephy/django-hackathon-starter
 
 
 
- <hr>
-
 ## Table of Contents
------------------
 
 - [Features](#features)
 - [Pre-requisites](#pre-requisites)
@@ -20,7 +15,7 @@
 - [License](#license)
 
 ## Features
---------
+
 * User Registration
 * Sphinx Documentation
 * Django Nosetests
@@ -35,18 +30,17 @@
     * Twitter API
     * Facebook API
     * Google+ API
-<hr>
 
 
 ## Pre-requisites
---------------
+
 
 This project relies on `bower` for front-end dependencies, which in turn requires [npm](https://www.npmjs.com/). `npm` is now bundled with `NodeJS`, which you can download and install [here](https://nodejs.org/download/).
 
 For Python-specific libraries, this project relies on [pip](https://pypi.python.org/pypi/pip). The easiest way to install `pip` can be [found here](https://pip.pypa.io/en/latest/installing.html).
 
 ## Getting Started
----------------
+
 To get up and running, simply do the following:
 
     $ git clone https://github.com/DrkSephy/django-hackathon-starter.git
@@ -69,7 +63,7 @@ To get up and running, simply do the following:
 <hr>
 
 ### Getting API Keys
-----------------
+
 
 
 <img src="https://g.twimg.com/Twitter_logo_blue.png" width="100">
@@ -141,7 +135,7 @@ To get up and running, simply do the following:
 
 
 ### Project Structure
------------------
+
 
 | Name                               | Description                                                 |
 | ---------------------------------- |:-----------------------------------------------------------:|
@@ -163,13 +157,13 @@ To get up and running, simply do the following:
 | **hackathon/templates/**hackathon/base.html         | Base template, contains navbar |
 
 ## Contributing
-------------
+
 
 We welcome contributions of all kinds. If you would like to know what work is needed to be done, check the [issue tracker](https://github.com/DrkSephy/django-hackathon-starter/issues). Before sending a pull request, please open an issue. This project follows the [pep-0008](https://www.python.org/dev/peps/pep-0008/) style guide.
 
 
 ### LICENSE
--------
+
 Where applicable to hackathon code contribution this license is applied:
 
 The MIT License (MIT)
