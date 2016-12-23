@@ -318,6 +318,15 @@ def index(request):
 def api_examples(request):
     context = {'title': 'API Examples Page'}
     return render(request, 'hackathon/api_examples.html', context)
+    
+##################
+#  Landing Page  #
+##################
+
+def landing(request):
+    context = {'title': 'Landing Page'}
+    return render(request, 'hackathon/landing.html', context)
+
 
 #################
 #   STEAM API   #
