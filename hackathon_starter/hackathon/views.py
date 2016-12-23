@@ -122,6 +122,14 @@ def index(request):
 
 
 ##################
+#   About Page   #
+##################
+
+def about(request):
+    context = {'title': 'About OpenStay'}
+    return render(request, 'hackathon/about.html', context)
+
+##################
 #  API Examples  #
 ##################
 
@@ -136,6 +144,24 @@ def api_examples(request):
 def landing(request):
     context = {'title': 'Landing Page'}
     return render(request, 'hackathon/landing.html', context)
+
+
+########################
+#   become host Page   #
+########################
+
+def host(request):
+    context = {'title': 'host with OpenStay'}
+    return render(request, 'hackathon/host.html', context)
+
+##################
+#   userpage     #
+##################
+
+def userpage(request):
+    context = {'title': 'your info'}
+    return render(request, 'hackathon/userpage.html', context)
+
 
 
 #################
