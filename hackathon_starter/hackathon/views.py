@@ -36,9 +36,12 @@ getFacebook = FacebookOauthClient(settings.FACEBOOK_APP_ID, settings.FACEBOOK_AP
 getGoogle = GooglePlus(settings.GOOGLE_PLUS_APP_ID, settings.GOOGLE_PLUS_APP_SECRET)
 
 
+
+##################
+#   Index Page   #
+##################
 def index(request):
     print "index: " + str(request.user)
-
     if not request.user.is_active:
         if request.GET.items():
             if profile_track == 'twitter':
@@ -136,14 +139,6 @@ def about(request):
 def api_examples(request):
     context = {'title': 'API Examples Page'}
     return render(request, 'hackathon/api_examples.html', context)
-    
-##################
-#  Landing Page  #
-##################
-
-def landing(request):
-    context = {'title': 'Landing Page'}
-    return render(request, 'hackathon/landing.html', context)
 
 
 ########################
@@ -269,7 +264,7 @@ def user_login(request):
         if user:
             if user.is_active:
                 login(request, user)
-                return HttpResponseRedirect('/hackathon/api/')
+                return HttpResponseRedirect('/')
             else:
                 return HttpResponse("Your Django Hackathon account is disabled.")
         else:

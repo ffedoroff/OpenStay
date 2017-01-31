@@ -2,6 +2,7 @@
  OpenStay uses the hackathon boilerplate
  https://github.com/DrkSephy/django-hackathon-starter
 
+manage.py runserver localhost:8080
 
 
 ## Table of Contents
