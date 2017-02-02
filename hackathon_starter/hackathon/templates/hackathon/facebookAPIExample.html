@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
 	<body>
-		{% include 'hackathon/base.html' %}
-	    <style>
-	    
-	    </style>
-	    
+{% extends 'hackathon/base.html' %}
+{% include 'hackathon/base.html' %}
+{% load static %}
+{% block content %}
 	    <div class="container">
 		    <h1>Facebook API Usage Example</h1>
 		    <hr>
@@ -55,4 +54,5 @@
 	    	</div>
         </div>
     </body>
+{% endblock %}
 </html>

@@ -1,10 +1,11 @@
-<html>
+{% extends 'hackathon/base.html' %}
 {% include 'hackathon/base.html' %}
+{% load static %}
 {% block content %}
 <body>
 	<div class="row text-center">
 		{% for i in '0123456789'|make_list %}
-	    <h1>user page</h1>
+	    <h1>{{ user }} page</h1>
 	    {% endfor %}
   	</div>
 </body>

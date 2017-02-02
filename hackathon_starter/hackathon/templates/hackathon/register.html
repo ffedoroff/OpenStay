@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
-    {% include 'hackathon/base.html' %}
+{% extends 'hackathon/base.html' %}
+{% include 'hackathon/base.html' %}
+{% load static %}
+{% block content %}
     <link rel="stylesheet" href="/static/css/form.css">
     <body>
         {% if registered %}
           <strong>Thank you for registering!</strong>
           <a href="/hackathon/login/">Return to the homepage.</a><br />
-        
+
         {% else %}
           <div class='container text-center'>
               <h2 class="form-signin-heading">Sign Up</h2>
@@ -14,17 +17,15 @@
               <form class="form-horizontal" id="user_form" method="post" action="/hackathon/register/"
                 enctype="multipart/form-data">
                 {% csrf_token %}
-                {% load bootstrap %} 
+                {% load bootstrap %}
 
                 <table>
                   <tr>
                       <td class="container text-center">{{ user_form.username | bootstrap_horizontal}}</td>
                   </tr>
-
                   <tr>
                       <td class="container text-center">{{ user_form.email | bootstrap_horizontal}}</td>
                   </tr>
-
                   <tr>
                       <td class="container text-center">{{ user_form.password | bootstrap_horizontal}}</td>
                   </tr>
@@ -35,5 +36,6 @@
             </div>
           {% endif %}
     </body>
+{% endblock %}
 </html>
 

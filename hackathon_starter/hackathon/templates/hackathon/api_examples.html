@@ -1,5 +1,8 @@
 <html>
+{% extends 'hackathon/base.html' %}
 {% include 'hackathon/base.html' %}
+{% load static %}
+{% block content %}
 <body>
 	<div class="row text-center">
 	    <div class="col-sm-4"><a href="http://127.0.0.1:8000/hackathon/twitterTweets/" style="color: #fff">
@@ -22,4 +25,5 @@
         </a></div>
   	</div>
 </body>
+{% endblock %}
 </html>

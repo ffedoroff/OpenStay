@@ -28,7 +28,7 @@ import requests
 # Models
 from models import *
 from serializers import SnippetSerializer
-from forms import UserForm
+from forms import UserForm, HostForm
 
 profile_track = None
 getTwitter = TwitterOauthClient(settings.TWITTER_CONSUMER_KEY, settings.TWITTER_CONSUMER_SECRET, settings.TWITTER_ACCESS_TOKEN, settings.TWITTER_ACCESS_TOKEN_SECRET)
@@ -47,7 +47,6 @@ def index(request):
             if profile_track == 'twitter':
                 oauth_verifier = request.GET['oauth_verifier']
                 getTwitter.get_access_token_url(oauth_verifier)
-
                 try:
                     user = User.objects.get(username = getTwitter.username + '_twitter')#(username=getTwitter.username)
                 except User.DoesNotExist:
@@ -249,18 +248,34 @@ def register(request):
     else:
         user_form = UserForm()
 
-
     return render(request,
             'hackathon/register.html',
-            {'user_form': user_form, 'registered': registered} )
+            {'user_form': user_form, 'registered': registered})
+
+
+def host_register(request):
+    gRegister = False
+    if request.method == 'POST':
+        host_form = HostForm(data=request.POST)
+        if host_form.is_valid():
+            user = host_form.save()
+            user.set_password(user.password)
+            user.save()
+            gRegister = True
+            return HttpResponseRedirect('/hackathon/api/')
+        else:
+            print host_form.errors
+    else:
+        guide_form = HostForm()
+    context = {'guide_form': guide_form, 'registered': gRegister}
+    return render(request, 'hackathon/host.html', context)
+
 
 def user_login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
-
         user = authenticate(username=username, password=password)
-
         if user:
             if user.is_active:
                 login(request, user)
@@ -270,7 +285,6 @@ def user_login(request):
         else:
             print "Invalid login details: {0}, {1}".format(username, password)
             return HttpResponse("Invalid login details supplied.")
-
     else:
         return render(request, 'hackathon/login.html', {})
 

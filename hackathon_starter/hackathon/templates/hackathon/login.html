@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
-    {% include 'hackathon/base.html' %}
+{% extends 'hackathon/base.html' %}
+{% include 'hackathon/base.html' %}
+{% load static %}
+{% block content %}
+
     <style>
       .form-signin {
         max-width: 550px;
@@ -40,4 +44,6 @@
         </a>
       </div>
     </body>
+{% endblock %}
+
 </html>
