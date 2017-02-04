@@ -1,6 +1,5 @@
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User, Host
-from bootstrap_datepicker.widgets import DatePicker
+from django.contrib.auth.models import User  # , Host
 from django import forms
 from hackathon.models import UserProfile
 
@@ -19,5 +18,5 @@ class HostForm(forms.ModelForm):
     city = forms.CharField()
     country = forms.CharField()
     class Meta:
-        model = Host
+        model = User
         fields = ['username', 'email', 'password', 'address', 'city', 'country']
