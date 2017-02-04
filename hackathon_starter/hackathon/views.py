@@ -147,6 +147,14 @@ def api_examples(request):
 def host(request):
     context = {'title': 'host with OpenStay'}
     return render(request, 'hackathon/host.html', context)
+    
+########################
+#   code of conduct    #
+########################
+
+def code_of_conduct(request):
+    context = {'title': 'OpenStay Code Of Conduct'}
+    return render(request, 'hackathon/CodeOfConduct.html', context)
 
 ##################
 #   userpage     #
