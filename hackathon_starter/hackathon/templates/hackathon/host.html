@@ -4,21 +4,23 @@
 {% load static %}
 {% block content %}
     <link rel="stylesheet" href="{% static "css/form.css" %}">
-    <body>
+    <h1 class="form-signin-heading text-center">Become a host</h1>
+    <br>
     {% if registered %}
         <strong>Thank you for registering!</strong>
         <p>you are now listed for your area. check out your listing here:</p>
         TODO: insert link to listing
     {% endif %}
+    <div style="background-color: #fbfbfc">
     <div class="container text-center">
-        <h2 class="form-signin-heading">Become a host</h2>
-        <br>
+    <br>
         <form class="form-horizontal" id="guide_form" method="post" action="/hackathon/host/"
               enctype="multipart/form-data">
             {% csrf_token %}
             {% load bootstrap %}
             <table>
                 {% if user.is_authenticated %}
+                
                     <tr>
                         <td class="container text-center">{{ guide_form.address | bootstrap_horizontal }}</td>
                     </tr>
@@ -52,7 +54,9 @@
             <button class="btn btn-lg btn-primary" type="submit">Register</button>
             <input type="hidden" name="submit" value="Register"/>
         </form>
+        <br/>
     </div>
-    </body>
+    </div>
+    <!--</body>-->
 {% endblock %}
 </html>

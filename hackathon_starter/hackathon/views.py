@@ -156,6 +156,39 @@ def code_of_conduct(request):
     context = {'title': 'OpenStay Code Of Conduct'}
     return render(request, 'hackathon/CodeOfConduct.html', context)
 
+########################
+#     Contact info     #
+########################
+
+def contact_us(request):
+    context = {'title': 'Contact Openstay'}
+    return render(request, 'hackathon/contact.html', context)
+
+########################
+#     pivacy policy    #
+########################
+
+def privacy_policy(request):
+    context = {'title': 'OpenStay Privacy policy'}
+    return render(request, 'hackathon/privacy.html', context)
+
+########################
+#    Terms of service  #
+########################
+
+def terms_of_service(request):
+    context = {'title': 'OpenStay ToS'}
+    return render(request, 'hackathon/terms.html', context)
+
+
+#########################
+# The Travelers Promise #
+#########################
+
+def travelers_promise(request):
+    context = {'title': 'The Travelers Promise'}
+    return render(request, 'hackathon/travelerspromise.html', context)
+
 ##################
 #   userpage     #
 ##################
@@ -279,6 +312,9 @@ def host_register(request):
     return render(request, 'hackathon/host.html', context)
 
 
+######################
+#       Login        #
+######################
 def user_login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
