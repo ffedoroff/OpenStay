@@ -9,4 +9,5 @@ ionic/platforms
 hackathon_starter/_build
 hackathon_starter/_static
 hackathon_starter/_templates
+hackathon_starter/hackathon_starter/settings.py
 .coverage
