@@ -2,8 +2,6 @@
  OpenStay uses the hackathon boilerplate
  https://github.com/DrkSephy/django-hackathon-starter
 
-manage.py runserver localhost:8080
-
 
 ## Table of Contents
 
@@ -32,9 +30,7 @@ manage.py runserver localhost:8080
     * Facebook API
     * Google+ API
 
-
 ## Pre-requisites
-
 
 This project relies on `bower` for front-end dependencies, which in turn requires [npm](https://www.npmjs.com/). `npm` is now bundled with `NodeJS`, which you can download and install [here](https://nodejs.org/download/).
 
@@ -57,7 +53,8 @@ To get up and running, simply do the following:
     # Perform database migrations
     $ python manage.py makemigrations
     $ python manage.py migrate
-
+    
+    $ manage.py runserver localhost:8080
 
 **NOTE**: We highly recommend creating a [Virtual Environment](http://docs.python-guide.org/en/latest/dev/virtualenvs/). Python Virtual Environments allow developers to work in isolated sandboxes and to create separation between python packages installed via [pip](https://pypi.python.org/pypi/pip).
 
