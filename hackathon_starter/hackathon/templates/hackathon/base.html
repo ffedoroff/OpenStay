@@ -15,8 +15,10 @@
     <link rel="stylesheet"
           href="../../static/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css"/>
     <link rel="stylesheet" href="../../static/bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../../static/bower_components/bootstrap/dist/css/bootstrap-theme.css">
     <link rel="stylesheet" href="../../static/bower_components/bootstrap-social/bootstrap-social.css">
     <link rel="stylesheet" href="../../static/bower_components/font-awesome/css/font-awesome.min.css">
+
     <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -39,7 +41,7 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     {% if not user.is_authenticated %}
-                        <li class="active"><a href="/hackathon/register">Register <span class="sr-only">(current)</span></a>
+                        <li><a href="/hackathon/register"><strong>Register</strong><span class="sr-only">(current)</span></a>
                         </li>
                         <li><a href="/hackathon/login">Login</a></li>
                     {% endif %}
@@ -82,8 +84,15 @@
                 </form>
                 <ul class="nav navbar-nav navbar-right">
                     {% if user.is_authenticated %}
-                        <li><a href="/hackathon/userpage/">Hello {{ user }}</a></li>
-                        <li><a href="/hackathon/logout/">Logout</a></li>
+                        <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hello {{user}} <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="/hackathon/userpage/">Profile</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li><class="divider"></li>
+                <li><a href="/hackathon/logout/">Logout</a></li>
+              </ul></li>
                     {% endif %}
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
