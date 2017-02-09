@@ -106,6 +106,11 @@ CORS_ORIGIN_ALLOW_ALL = True
 ############
 #   KEYS   #
 ############
+YELP_CONSUMER_KEY = ''
+YELP_CONSUMER_SECRET = ''
+YELP_ACCESS_KEY = ''
+YELP_ACCESS_SECRET = ''
+
 
 GITHUB_CLIENT_ID = 'client_id='
 GITHUB_CLIENT_SECRET = 'client_secret='

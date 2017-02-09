@@ -21,9 +21,11 @@ from scripts.googlePlus import *
 
 
 # Python
+# from requests_oauth2 import OAuth2 as oauth
 import oauth2 as oauth
 import simplejson as json
 import requests
+
 
 # Models
 from models import *
@@ -194,10 +196,56 @@ def travelers_promise(request):
 ##################
 
 def userpage(request):
-    context = {'title': 'your info'}
+    user = User.objects.all()
+    listofattractions = []
+    for u in user:
+        name = u.username
+        
+
+    location = "new york city"
+    interests = 'sports, mountain climbing, bleh, foobar, coding'
+    accomodation = ['house', 'double bed', 'futon']
+    # for pictures: http://ashleydw.github.io/lightbox/
+    
+    YELP_CONSUMER_KEY = '9PLzBaT21UbHC7MCS5eYkQ'
+    YELP_CONSUMER_SECRET = 'I9NC-0JB2Mc7H6kHD_Y-D0Lqfuk'
+    YELP_ACCESS_KEY = 'go7gUc6VZnAinnMRg9BB9TQ2NcUEtAEE'
+    YELP_ACCESS_SECRET = 'yMzMcMAiMOQyHQTWKfrqJpdQEBs'
+    consumer_key = YELP_CONSUMER_KEY
+    consumer_secret = YELP_CONSUMER_SECRET
+    access_key = YELP_ACCESS_KEY
+    access_secret = YELP_ACCESS_SECRET
+    
+    
+    site = 'https://api.yelp.com/v2/search'
+    consumer = oauth.Consumer(consumer_key, consumer_secret)
+    access_token = oauth.Token(access_key, access_secret)
+    client = oauth.Client(consumer, access_token)
+    endpoint = 'https://api.yelp.com/v2/search/'
+    search_terms = '?term=tourist attractions&location='+ location + \
+                   '&limit=10&radius_filter=10000'
+    responce, data = client.request(endpoint+search_terms)
+    attractions = json.loads(data)['businesses']
+    for n in xrange(0, len(attractions)):
+        listofattractions.append(attractions[n]['name'])
+    context = {'username': name, 'location': location, 'yelp': listofattractions,
+               'interests': interests, 'accomodation': accomodation}
     return render(request, 'hackathon/userpage.html', context)
 
 
+#################
+# search engine #
+#################
+
+def searchEngine(request):
+    '''
+    This is an example of getting basic user info and display it
+    '''
+    user = User.objects.all()
+    listofusers = []
+    for u in user:
+        listofusers.append(u)
+    return render(request, 'hackathon/search.html', { 'results' : listofusers})
 
 #################
 #  FACEBOOK API #
@@ -294,6 +342,8 @@ def register(request):
             {'user_form': user_form, 'registered': registered})
 
 
+
+# HOST
 def host_register(request):
     gRegister = False
     if request.method == 'POST':
