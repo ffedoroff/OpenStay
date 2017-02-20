@@ -1,0 +1,4 @@
+[flake8]
+max-line-length=150
+max-complexity = 40
+exclude = .git,.venv,web/smoketest
