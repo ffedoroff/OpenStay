@@ -1,7 +1,5 @@
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
 from django import forms
-from hackathon.models import UserProfile
+from django.contrib.auth.models import User
 
 
 class UserForm(forms.ModelForm):
@@ -9,7 +7,7 @@ class UserForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'password']# , 'description', 'interests', 'city']
+        fields = ['username', 'email', 'password']
 
 
 class HostForm(forms.ModelForm):
@@ -17,6 +15,7 @@ class HostForm(forms.ModelForm):
     address = forms.CharField()
     city = forms.CharField()
     country = forms.CharField()
+
     class Meta:
         model = User
         fields = ['username', 'email', 'password', 'address', 'city', 'country']

@@ -7,21 +7,25 @@ twitter.py contains a handful of methods for interacting
 with Twitter data and returning the responses as JSON.
 '''
 
-
+import base64
+import binascii
+import collections
+import hashlib
+import hmac
+import json
+import random
+import time
+import urllib
 import urlparse
+
 import oauth2 as oauth
 import requests
-import base64, random
-import urllib
-import binascii
-import time, collections, hmac, hashlib
 import simplejson as json2
-import codecs
-import json
 
 REQUEST_TOKEN_URL = 'https://api.twitter.com/oauth/request_token'
 ACCESS_TOKEN_URL = 'https://api.twitter.com/oauth/access_token'
 AUTHORIZE_URL = 'https://api.twitter.com/oauth/authorize'
+
 
 class TwitterOauthClient(object):
     '''
@@ -32,7 +36,6 @@ class TwitterOauthClient(object):
     oauth_token_secret = None
     username = None
     is_authorized = False
-
 
     def __init__(self, consumer_key, consumer_secret, access_token, access_token_secret):
         '''
@@ -51,7 +54,6 @@ class TwitterOauthClient(object):
         self.access_token_secret = access_token_secret
         self.consumer = oauth.Consumer(key=self.consumer_key, secret=self.consumer_secret)
 
-
     def get_authorize_url(self):
         '''
         Obtained oauth_token and oauth_token_secret from request_token_url,
@@ -67,21 +69,20 @@ class TwitterOauthClient(object):
         client = oauth.Client(self.consumer)
         resp, content = client.request(REQUEST_TOKEN_URL, 'GET')
 
-        #if int(resp['status']) != 200:
+        # if int(resp['status']) != 200:
         #    raise Exception('Invalid response %s' %resp['status'])
 
         requestToken = dict(urlparse.parse_qsl(content))
 
-        #temporary
+        # temporary
         self.oauth_token = requestToken['oauth_token']
         self.oauth_token_secret = requestToken['oauth_token_secret']
-        #print self.oauth_token
+        # print self.oauth_token
 
-        #link to authorize app access twitter data and return to twitter api example page
+        # link to authorize app access twitter data and return to twitter api example page
         redirectUri = '&redirect_uri=http%3A%2F%2Flocalhost%3A8000/hackathon/twitter/'
-        authURL = AUTHORIZE_URL+"?oauth_token="+self.oauth_token+redirectUri
+        authURL = AUTHORIZE_URL + "?oauth_token=" + self.oauth_token + redirectUri
         return authURL
-
 
     def get_access_token_url(self, oauthVerifier):
         '''
@@ -104,17 +105,16 @@ class TwitterOauthClient(object):
         resp, content = client.request(ACCESS_TOKEN_URL, 'POST')
 
         if int(resp['status']) != 200:
-            raise Exception('Invalid response %s' %resp['status'])
+            raise Exception('Invalid response %s' % resp['status'])
 
-        #print content
+        # print content
         accessToken = dict(urlparse.parse_qsl(content))
 
-        #permanent
+        # permanent
         self.oauth_token = accessToken['oauth_token']
         self.oauth_token_secret = accessToken['oauth_token_secret']
         self.username = accessToken['screen_name']
         self.is_authorized = True
-
 
     def get_tweets(self, tweet):
         '''
@@ -145,7 +145,7 @@ class TwitterOauthClient(object):
         req = requests.get(link, headers=headers)
 
         if int(req.status_code) != 200:
-            raise Exception('Invalid response %s' %req.status_code)
+            raise Exception('Invalid response %s' % req.status_code)
 
         content = json2.loads(req.content)
 
@@ -156,11 +156,9 @@ class TwitterOauthClient(object):
                     if contrib['user']['screen_name'] in jsonlist:
                         jsonlist[contrib['user']['screen_name']][contrib[e]] = str(contrib['text'].encode('ascii', 'ignore'))
                     else:
-                        jsonlist[contrib['user']['screen_name']] = { contrib[e]:str(contrib['text'].encode('ascii', 'ignore'))}
-                    
+                        jsonlist[contrib['user']['screen_name']] = {contrib[e]: str(contrib['text'].encode('ascii', 'ignore'))}
 
         return content['statuses'], json.dumps(jsonlist)
-
 
     def get_trends_available(self, yahooConsumerKey):
         '''
@@ -189,34 +187,32 @@ class TwitterOauthClient(object):
         headers = {'Authorization': createAuthHeader(oauthParameters)}
 
         if linkParameters:
-            link += '?'+urllib.urlencode(linkParameters)
+            link += '?' + urllib.urlencode(linkParameters)
 
         req = requests.get(link, headers=headers)
-        #print req.status_code
+        # print req.status_code
 
         if int(req.status_code) != 200:
-            raise Exception('Invalid response %s' %req.status_code)
+            raise Exception('Invalid response %s' % req.status_code)
 
         content = json2.loads(req.content)
-        #print len(content)
+        # print len(content)
 
         for place in content:
             for item in place:
                 if item == 'url':
-                    url = place[item]+'/neighbors?appid='+yahooConsumerKey+'&format=json'
+                    url = place[item] + '/neighbors?appid=' + yahooConsumerKey + '&format=json'
                     requestNeighborData = requests.get(url)
-                    #print request_neighbor_data.status_code
+                    # print request_neighbor_data.status_code
                     if requestNeighborData.status_code == 200:
                         neighbor = json2.loads(requestNeighborData.content)
                     else:
                         neighbor = {}
 
             place['neighbor'] = neighbor
-                    #print place
-
+            # print place
 
         return content
-
 
 
 def percentEncode(string):
@@ -234,6 +230,7 @@ def getNonce():
     nonce = base64.b64encode(''.join([str(random.randint(0, 9)) for i in range(24)]))
     return nonce
 
+
 def generateSignature(method, link, linkParameters, oauthParameters,
                       oauthConsumerSecret, oauthTokenSecret=None):
     '''
@@ -246,14 +243,13 @@ def generateSignature(method, link, linkParameters, oauthParameters,
     else:
         params = urllib.urlencode(collections.OrderedDict(sorted(oauthParameters.items())))
 
-    #Create your Signature Base String
-    signatureBaseString = (method.upper()+'&'+percentEncode(str(link))+'&'+percentEncode(params))
+    # Create your Signature Base String
+    signatureBaseString = (method.upper() + '&' + percentEncode(str(link)) + '&' + percentEncode(params))
 
-    #Get the signing key
+    # Get the signing key
     signingKey = createSigningKey(oauthConsumerSecret, oauthTokenSecret)
 
     return calculateSignature(signingKey, signatureBaseString)
-
 
 
 def calculateSignature(signingKey, signatureBaseString):

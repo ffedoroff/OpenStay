@@ -53,7 +53,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    #'django_openid_consumer.SessionConsumer',
+    # 'django_openid_consumer.SessionConsumer',
 )
 
 ROOT_URLCONF = 'hackathon_starter.urls'
@@ -116,7 +116,7 @@ GITHUB_CLIENT_ID = 'client_id='
 GITHUB_CLIENT_SECRET = 'client_secret='
 
 TUMBLR_CONSUMER_KEY = ''
-TUMBLR_CONSUMER_SECRET =''
+TUMBLR_CONSUMER_SECRET = ''
 
 INSTAGRAM_CLIENT_ID = ''
 INSTAGRAM_CLIENT_SECRET = ''
